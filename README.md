@@ -135,7 +135,7 @@ Como qualquer outro Query Builder, o [Knex JS](http://knexjs.org/) limita nossas
 ✅ No arquivo **\comum\mylib.js** temos o Endpoint **/abresql** onde podemos enviar qualquer query para abrir no banco de dados e em seguida receber os dados retornados de uma forma padronizada via JSON.
 #
 ##### ⚠️ ATENÇÃO!!!
-Entendo que com essa rota estamos suscetíveis a ataques de SQL Injection, minha ideia para evitar isso é criar uma tabela no banco chamada "SQL" e através dela cadastrar os templates das querys e os parâmetros que serão recebidos, com isso ajustaremos a nossa rota para receber apenas o ID dessa tabela "SQL" e os parâmetros com suas respectivas ordens e valores. Essa implementação ainda precisa ser realizada.
+Entendo que **com esse Endpoint estamos suscetíveis a ataques de SQL Injection**, minha ideia para evitar isso é **criar uma tabela no banco chamada "SQL" e através dela cadastrar os templates das querys e os parâmetros que serão recebidos**, com isso ajustaremos a nossa rota para receber apenas o ID dessa tabela "SQL" e os parâmetros com suas respectivas ordens e valores. Essa implementação ainda precisa ser realizada.
 #
 **Com o nosso banco de exemplo, vamos criar uma Query para nos buscar todos os atores de um determinado filme.**
 ##### POST - Consultar dados de acordo com Query enviada
