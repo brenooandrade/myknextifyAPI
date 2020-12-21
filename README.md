@@ -130,9 +130,12 @@ URI: http://localhost:3000/aluguel/exclusao/11
 ```
 
 #### 5. Realizando consulta de acordo com Query enviado
-Como qualquer outro Query Builder, o [Knex JS](http://knexjs.org/) limita nossas possibilidades no que diz respeito a liberdade para a realização de consultas SQL, então eu precisei criar um Endpoint específico para abrir minhas querys de forma dinâmica, recebendo os dados em JSON e tratando os campos e valores retornados.
+Como qualquer outro Query Builder, o [Knex JS](http://knexjs.org/) limita nossas possibilidades no que diz respeito a liberdade para a realização de consultas SQL, eu precisei criar um Endpoint específico para abrir minhas querys de forma dinâmica, recebendo os dados em JSON e tratando os campos e valores retornados.
 #
 ✅ No arquivo **\comum\mylib.js** temos o Endpoint **/abresql** onde podemos enviar qualquer query para abrir no banco de dados e em seguida receber os dados retornados de uma forma padronizada via JSON.
+#
+##### ⚠️ ATENÇÃO!!!
+Entendo que com essa rota estamos suscetíveis a ataques de SQL Injection, minha ideia para evitar isso é criar uma tabela no banco chamada "SQL" e através dela cadastrar os templates das querys e os parâmetros que serão recebidos, com isso ajustaremos a nossa rota para receber apenas o ID dessa tabela "SQL" e os parâmetros com suas respectivas ordens e valores. Essa implementação ainda precisa ser realizada.
 #
 **Com o nosso banco de exemplo, vamos criar uma Query para nos buscar todos os atores de um determinado filme.**
 ##### POST - Consultar dados de acordo com Query enviada
@@ -154,6 +157,7 @@ Payload (body):
 - [x] Validação de parâmetros e payloads conforme regra de negócio definida
 - [x] Rota para realizar consulta SQL de acordo com Query enviada
 - [X] Inclusão de vários registros com apenas uma requisição de JSON
+- [ ] Ajustar Endpoint /abresql para evitar SQL Injections
 - [ ] RESTful para CRUD em tabelas com PK composta
 - [ ] Rate limit
 - [ ] Adaptar o funcionamento para outros banco de dados
